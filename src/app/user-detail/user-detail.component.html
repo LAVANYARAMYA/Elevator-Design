@@ -1,0 +1,36 @@
+
+<div class="user">
+  <div class="content">
+    <div class="close" (click)="onClosing($event)">
+       <button mat-button (click)="goToLift()"> <mat-icon class="cross-icon"> close</mat-icon> </button>
+      </div>
+  </div>
+<form  class="form" [formGroup]="nameForm" (ngSubmit)="validateUser()">
+ 
+  <mat-form-field class="example-full-width" class="custom-form-field">
+    <mat-label>Enter the user Id</mat-label>
+    <input
+      matInput
+      placeholder="userID"
+      type="text"
+      class="custom-input"
+      formControlName="userid"
+      required
+    />
+    <mat-error *ngIf="userid?.errors?.['required']">
+      This field is required
+    </mat-error>
+  </mat-form-field>
+  <br />
+  <button class="submit-button"
+    mat-raised-button
+    color="primary"
+    [disabled]="nameForm.invalid"
+    type="submit"
+  >
+    Submit
+  </button>
+  <br>
+  <button class="newuser" mat-button style="color: blue;font-size: small;"(click)=newuser()>New User?</button>
+</form>
+</div>
